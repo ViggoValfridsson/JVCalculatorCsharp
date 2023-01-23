@@ -23,7 +23,7 @@ public class GetConversionRate
     }
     public static object GetPropValue(object src, string propName)
     {
-        return src.GetType().GetProperty(propName).GetValue(src, null);
+        return src.GetType().GetProperty(propName)!.GetValue(src, null)!;
     }
     public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)
     {
