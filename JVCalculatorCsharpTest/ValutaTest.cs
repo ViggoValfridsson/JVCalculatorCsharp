@@ -8,7 +8,13 @@ public class ValutaTest
     public async void FetchExchangeDataTest()
     {
         ExchangeDataObject data = await GetConversionRate.FetchFromApi("USD");
+        var expected = "success";
 
-        Assert.Equal("success", data.result);
+        Assert.Equal(expected, data.result);
+    }
+    [Fact]
+    public void GetPropValue()
+    {
+
     }
 }
