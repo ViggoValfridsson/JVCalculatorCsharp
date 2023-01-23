@@ -9,7 +9,7 @@ public class ExchangeDataObject
     public string? time_last_update_utc { get; set; }
     public string? time_next_update_utc { get; set; }
     public string? base_code { get; set; }
-    public ConversionRate? conversion_rates { get; set; }
+    public ConversionRate conversion_rates { get; set; }
 }
 
 public class ConversionRate

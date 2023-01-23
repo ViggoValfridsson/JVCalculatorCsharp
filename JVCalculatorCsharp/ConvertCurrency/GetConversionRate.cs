@@ -21,4 +21,20 @@ public class GetConversionRate
             throw;
         }
     }
+    public static object GetPropValue(object src, string propName)
+    {
+        return src.GetType().GetProperty(propName)!.GetValue(src, null)!;
+    }
+    public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)
+    {
+        return startValue * conversionRate;
+    }
+    //Behöver testas i UIn
+    public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
+    {
+        ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);
+        var conversionRate = GetPropValue(responseObject.conversion_rates, exchangeCurrency);
+
+        return CalculateConvertedValue(Convert.ToDecimal(conversionRate), Convert.ToDecimal(startValue));
+    }
 }
