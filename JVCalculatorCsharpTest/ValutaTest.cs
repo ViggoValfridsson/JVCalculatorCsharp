@@ -22,7 +22,9 @@ public class ValutaTest
         Assert.Equal(testObject.conversion_rates.SEK, result);
     }
     [Theory]
-    [InlineData(10,10, 100)]
+    [InlineData(10, 10, 100)]
+    [InlineData(10, 1, 10)]
+    [InlineData(10, 0.9, 9)]
     public void CalculateConvertedValue(decimal startValue, decimal conversionRate, decimal convertedValue)
     {
         var result = GetConversionRate.CalculateConvertedValue(startValue, conversionRate);
