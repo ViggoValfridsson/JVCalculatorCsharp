@@ -29,4 +29,12 @@ public class GetConversionRate
     {
         return startValue * conversionRate;
     }
+    //Behöver testas i UIn
+    public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
+    {
+        ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);
+        var conversionRate = GetPropValue(responseObject.conversion_rates, exchangeCurrency);
+
+        return CalculateConvertedValue(Convert.ToDecimal(conversionRate), Convert.ToDecimal(startValue));
+    }
 }
