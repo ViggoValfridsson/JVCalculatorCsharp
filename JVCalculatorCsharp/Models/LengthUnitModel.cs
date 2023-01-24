@@ -8,5 +8,5 @@ public class LengthUnitModel
     public decimal Inch = 0.0254m;
     public decimal Foot = 0.3048m;
     public decimal Yard = 0.9144m;
-    public decimal Mile = 1609.35m;
+    public decimal Mile = 1609.34m;
 }
