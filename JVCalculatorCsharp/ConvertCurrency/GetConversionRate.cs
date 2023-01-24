@@ -1,7 +1,7 @@
 ﻿using JVCalculatorCsharp.Models;
 using Newtonsoft.Json;
 
-namespace JVCalculatorCsharp.FetchData;
+namespace JVCalculatorCsharp.ConvertCurrency;
 public class GetConversionRate
 {
     public static async Task<ExchangeDataObject> FetchFromApi(string currency)
@@ -29,7 +29,6 @@ public class GetConversionRate
     {
         return startValue * conversionRate;
     }
-    //Behöver testas i UIn
     public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
     {
         ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);

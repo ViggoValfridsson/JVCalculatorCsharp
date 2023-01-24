@@ -1,4 +1,4 @@
-using JVCalculatorCsharp.FetchData;
+using JVCalculatorCsharp.ConvertCurrency;
 using JVCalculatorCsharp.Models;
 namespace JVCalculatorCsharpTest;
 
