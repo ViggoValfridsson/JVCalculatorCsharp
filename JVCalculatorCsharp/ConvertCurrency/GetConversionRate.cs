@@ -1,4 +1,5 @@
 ﻿using JVCalculatorCsharp.Models;
+using JVCalculatorCsharp.Utils;
 using Newtonsoft.Json;
 
 namespace JVCalculatorCsharp.ConvertCurrency;
@@ -21,10 +22,6 @@ public class GetConversionRate
             throw;
         }
     }
-    public static object GetPropValue(object src, string propName)
-    {
-        return src.GetType().GetProperty(propName)!.GetValue(src, null)!;
-    }
     public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)
     {
         return startValue * conversionRate;
@@ -32,7 +29,7 @@ public class GetConversionRate
     public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
     {
         ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);
-        var conversionRate = GetPropValue(responseObject.conversion_rates, exchangeCurrency);
+        var conversionRate = ObjectHelpers.GetPropValue(responseObject.conversion_rates, exchangeCurrency);
 
         return CalculateConvertedValue(Convert.ToDecimal(conversionRate), Convert.ToDecimal(startValue));
     }

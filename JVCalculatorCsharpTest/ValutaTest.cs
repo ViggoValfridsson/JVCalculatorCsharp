@@ -12,15 +12,7 @@ public class ValutaTest
 
         Assert.Equal(expected, data.result);
     }
-    [Fact]
-    public async void GetPropValueTest()
-    {
-        var testObject = await GetConversionRate.FetchFromApi("USD");
 
-        var result = GetConversionRate.GetPropValue(testObject.conversion_rates, "SEK");
-
-        Assert.Equal(testObject.conversion_rates.SEK, result);
-    }
     [Theory]
     [InlineData(10, 10, 100)]
     [InlineData(10, 1, 10)]
