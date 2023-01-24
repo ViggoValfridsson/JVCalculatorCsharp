@@ -15,7 +15,7 @@ public class LengthUnitCalculator
         decimal conversionRatio = Convert.ToDecimal(startUnitValue) / Convert.ToDecimal(newUnitValue);
 
         decimal nonRoundedValue = conversionRatio * startValue;
-        decimal roundedValue = Math.Round(nonRoundedValue, 10);
+        decimal roundedValue = Math.Round(nonRoundedValue, 4);
 
         return roundedValue;
     }
