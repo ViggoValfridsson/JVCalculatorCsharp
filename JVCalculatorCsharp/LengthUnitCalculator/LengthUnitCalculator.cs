@@ -1,9 +1,7 @@
 ﻿using JVCalculatorCsharp.Models;
-using JVCalculatorCsharp.Utils;
-using System.Reflection;
 
 namespace JVCalculatorCsharp.LengthUnitCalculator;
-public class LengthUnitCalculator
+public class LengthUnitConverter
 {
     public static decimal ConvertLengthUnit(decimal startValue, string startUnit, string newUnit)
     {
