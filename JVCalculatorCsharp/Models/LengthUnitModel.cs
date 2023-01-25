@@ -1,7 +1,7 @@
 ﻿namespace JVCalculatorCsharp.Models;
 public class LengthUnitModel
 {
-    public decimal MilliMeter = 0.001m;
+    public decimal Millimeter = 0.001m;
     public decimal Centimeter = 0.01m;
     public decimal Meter = 1m;
     public decimal Kilometer = 1000m;

@@ -14,7 +14,7 @@ public class LengthUnitTest
 
     public void ConvertLengthUnitTest(decimal startValue, string startUnit, string newUnit, decimal convertedValue)
     {
-        decimal result = LengthUnitCalculator.ConvertLengthUnit(startValue, startUnit, newUnit);
+        decimal result = LengthUnitConverter.ConvertLengthUnit(startValue, startUnit, newUnit);
         decimal expected = convertedValue;
 
         Assert.Equal(expected, result);
