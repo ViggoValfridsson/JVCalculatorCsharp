@@ -1,0 +1,61 @@
+﻿@using JVCalculatorCsharp.TemperatureConverter;
+@page "/Temperature";
+
+<h1>Temperature Converter</h1>
+
+<form @onsubmit="HandleTempConversion">
+    <label for="startValue">From</label>
+    <select @bind="StartUnit" required>
+        <option value="Celsius">Celsius</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+    </select>
+
+    <label for="ConversionValue">To</label>
+    <select @bind="ConvertToUnit" required>
+        <option value="Celsius">Celsius</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Kelvin">Kelvin</option>
+    </select>
+    <input @bind="StartValue" type="number" required/>
+    <button type="submit">Convert Temperature</button>
+
+    <p>@ConvertedValue </p>
+</form>
+
+@code {
+    public string? StartValue { get; set; }
+    public string? StartUnit { get; set; }
+    public string? ConvertToUnit { get; set; }
+    public string? ConvertedValue { get; set; }
+    public bool Error { get; set; } = false;
+
+    public void HandleTempConversion()
+    {
+        decimal startValue;
+        try
+        {
+            startValue = Convert.ToDecimal(StartValue);
+            Error = false;
+        }
+        catch
+        {
+            Error = true;
+            return;
+        }
+
+        if(StartUnit == "Kelvin" || ConvertToUnit == "Kelvin")
+        {
+            
+            decimal convertedValue = ConvertTemperature.KelvinConversion(startValue, StartUnit!, ConvertToUnit!);
+            ConvertedValue = convertedValue.ToString("G29");
+        } 
+
+        else
+        {
+            decimal convertedValue = ConvertTemperature.CelsiusFahrenheitConversion(startValue, StartUnit!, ConvertToUnit!);
+            ConvertedValue = convertedValue.ToString("G29");
+        }
+    }
+
+}
