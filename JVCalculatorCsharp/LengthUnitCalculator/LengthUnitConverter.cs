@@ -25,6 +25,10 @@ public class LengthUnitConverter
         {
             ConvertedValue = Math.Round(ConvertedValue, 4);
         }
+        else
+        {
+            ConvertedValue = Math.Round(ConvertedValue, 10);
+        }
 
         return ConvertedValue;
     }
