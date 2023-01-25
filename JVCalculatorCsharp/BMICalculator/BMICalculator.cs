@@ -1,6 +1,6 @@
 ﻿using JVCalculatorCsharp.LengthUnitCalculator;
 namespace JVCalculatorCsharp.BMICalculator;
-public class BMIConverter
+public class BMICalculator
 {
     public static decimal CalculateBMI(double heightInCm, decimal weightInKg)
     {

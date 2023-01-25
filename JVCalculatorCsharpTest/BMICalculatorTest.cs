@@ -10,7 +10,7 @@ namespace JVCalculatorCsharpTest
         [InlineData(190, 85, 23.5)]
         public void BMIMetricTest(double heightInCm, decimal weightInKg, decimal bmi)
         {
-            decimal result = BMIConverter.CalculateBMI(heightInCm, weightInKg);
+            decimal result = BMICalculator.CalculateBMI(heightInCm, weightInKg);
             decimal expected = bmi;
 
             Assert.Equal(expected, result);
@@ -20,7 +20,7 @@ namespace JVCalculatorCsharpTest
         [InlineData(6, 5, 168, 19.9)]
         public void ImperialTest(decimal feet, decimal inches, decimal weightInLbs, decimal bmi)
         {
-            decimal result = BMIConverter.CalculateBMI(feet, inches, weightInLbs);
+            decimal result = BMICalculator.CalculateBMI(feet, inches, weightInLbs);
             decimal expected = bmi;
 
             Assert.Equal(expected, result);
