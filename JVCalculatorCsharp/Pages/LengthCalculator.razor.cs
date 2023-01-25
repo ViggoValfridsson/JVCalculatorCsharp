@@ -25,7 +25,7 @@ namespace JVCalculatorCsharp.Pages
                 InvalidUnit = false;
                 ConvertedAmount = "Loading...";
                 decimal CalculatedAmount = LengthUnitConverter.ConvertLengthUnit(amount, StartingUnit, ConversionUnit);
-                ConvertedAmount = CalculatedAmount.ToString();
+                ConvertedAmount = CalculatedAmount.ToString("G29");
             }
             else
             {
