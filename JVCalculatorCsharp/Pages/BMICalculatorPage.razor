@@ -1,0 +1,41 @@
+﻿@page "/bmi"
+
+<h1>BMI Calculator</h1>
+
+<div>
+    <button @onclick="() => UsingMetricUnits = true" type="button" class="@(UsingMetricUnits ? "selected" : "")">Metric Units </button>
+    <button @onclick="() => UsingMetricUnits = false" type="button" class="@(UsingMetricUnits ? "" : "selected")">Imperial Units</button>
+
+    <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+        @if (UsingMetricUnits)
+        {
+            <label for="height-in-cm">Your height in cm:</label>
+            <input type="text" id="height-in-cm" @bind="HeightInCm" required />
+            <label for="weight-in-kg">Your weight in kg:</label>
+            <input type="number" id="weight-in-kg" @bind=WeightInKg required />
+        }
+        else
+        {
+            <fieldset>
+                <legend>Your Height</legend>
+                <label for="feet-input">Feet:</label>
+                <input type="number" id="feet-input" @bind="HeightFeet" required />
+                <label for="inch-input">Inches:</label>
+                <input type="number" id="inch-input" @bind="HeightInches" required />
+            </fieldset>
+            <label for="weight-in-lbs">Your weight in pounds:</label>
+            <input type="number" id="weight-in-lbs" @bind=WeightInLbs required />
+        }
+
+        @if (InvalidInput)
+        {
+            <p>Please enter your height and weight with numbers</p>
+        }
+        @if (NegativeInput)
+        {
+            <p>Please enter your height and weight using positive numbers</p>
+        }
+        <button type="submit">Calculate</button>
+    </form>
+    <p>@BMI</p>
+</div>
