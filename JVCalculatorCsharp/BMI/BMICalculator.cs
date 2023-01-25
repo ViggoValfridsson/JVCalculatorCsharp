@@ -1,5 +1,5 @@
 ﻿using JVCalculatorCsharp.LengthUnitCalculator;
-namespace JVCalculatorCsharp.BMICalculator;
+namespace JVCalculatorCsharp.BMI;
 public class BMICalculator
 {
     public static decimal CalculateBMI(double heightInCm, decimal weightInKg)

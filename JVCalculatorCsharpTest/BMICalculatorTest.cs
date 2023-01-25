@@ -1,5 +1,4 @@
-﻿using JVCalculatorCsharp.BMICalculator;
-using System;
+﻿using JVCalculatorCsharp.BMI;
 
 namespace JVCalculatorCsharpTest
 {
