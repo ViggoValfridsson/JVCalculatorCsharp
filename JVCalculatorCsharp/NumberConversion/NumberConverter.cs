@@ -47,6 +47,49 @@ public class NumberConverter
     }
     public static string BinaryConverter(string input, string startUnit, string conversionUnit)
     {
-        return string.Empty;
+        if (startUnit == "Binary")
+        {
+            try
+            {
+                int inputInDecimal = Convert.ToInt32(input, 2);
+
+                if (conversionUnit == "Hexadecimal")
+                {
+                    return inputInDecimal.ToString("X");
+                }
+                else if (conversionUnit == "Decimal")
+                {
+                    return inputInDecimal.ToString();
+                }
+
+                return input;
+            }
+            catch
+            {
+                throw new ArgumentException("Please enter a valid binary number!");
+            }
+        }
+        else
+        {
+            try
+            {
+                int inputInDecimal;
+
+                if (startUnit == "Hexadecimal")
+                {
+                    inputInDecimal = Convert.ToInt32(DecimalHexConverter(input, startUnit, "Decimal"));
+                }
+                else
+                {
+                    inputInDecimal = Convert.ToInt32(input);
+                }
+
+                return Convert.ToString(inputInDecimal, 2);
+            }
+            catch
+            {
+                throw new ArgumentException($"Please enter a valid {startUnit.ToLower()} number");
+            }
+        }
     }
 }
