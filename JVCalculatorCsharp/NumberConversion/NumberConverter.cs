@@ -2,8 +2,7 @@
 
 public class NumberConverter
 {
-    public static string DecimalToHex(int input)
+    public static string DecimalHexConverter(string input, string startUnit, string conversionUnit)
     {
-        return input.ToString("X");
     }
 }
