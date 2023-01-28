@@ -1,0 +1,64 @@
+﻿@using JVCalculatorCsharp.ISKTaxCalculator;
+@page "/ISKTax";
+
+<h1>ISK Tax Calculator</h1>
+<p> Calculates your ISK tax to be paid for the recent year. Adding your account-balances for every quarter together and then adding the deposits made during the year. This sum will be divided with 4 in order to get the average acccount value. The average account value is multiplied with the government-loan-interest-rate for the year, + 1. Which is, 1.94 (+1) = 2.94 (2023). This number will then be taxed with 30% which is the common tax for capital gains.</p>
+
+<form @onsubmit="handleSubmit" @onsubmit:preventDefault="true">
+    <label for="AccValueQ1">Account Value Q1</label>
+    <input type="number" id="AccValueQ1" @bind="Q1" required />
+    <label for="AccValueQ2">Account Value Q2</label>
+    <input type="number" id="AccValueQ2" @bind="Q2" required />
+    <label for="AccValueQ3">Account Value Q3</label>
+    <input type="number" id="AccValueQ3" @bind="Q3" required />
+
+     <label for="AccValueQ4">Account Value Q4</label>
+    <input type="number" id="AccValueQ4" @bind="Q4" required />
+     <label for="depositsMade">Deposits</label>
+    <input type="number" id="depositsMade" @bind="deposits" required />
+
+
+    @if (Error)
+    {
+        <p>Invalid input, please try again.</p>
+    }
+    <button type="submit">Calculate Your Tax</button>
+</form>
+
+<p>@TaxToPay </p>
+
+
+
+
+@code {
+    public string? Q1 { get; set; }
+    public string? Q2 { get; set; }
+    public string? Q3 { get; set; }
+    public string? Q4 { get; set; }
+    public string? deposits { get; set; }
+    public string? TaxToPay { get; set; }
+    public bool Error { get; set; } = false;
+
+   
+
+    public void handleSubmit()
+    {
+        try
+        {
+            var q1 = Convert.ToDecimal(Q1);
+            var q2 = Convert.ToDecimal(Q2);
+            var q3 = Convert.ToDecimal(Q3);
+            var q4 = Convert.ToDecimal(Q4);
+            var depositsMadeThisYear = Convert.ToDecimal(deposits);
+            Error = false;
+            decimal result = ISKTaxCalculate.ISKTaxCalc(q1, q2, q3, q4, depositsMadeThisYear);
+            TaxToPay = result.ToString("G29");
+        }
+        catch
+        {
+            Error = true;
+        }
+       
+    }
+
+}
