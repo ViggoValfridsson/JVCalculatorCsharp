@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Converters;
-
-namespace JVCalculatorCsharp.NumberConversion;
+﻿namespace JVCalculatorCsharp.NumberConversion;
 
 public class NumberConverter
 {
