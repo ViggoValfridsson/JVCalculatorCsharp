@@ -21,7 +21,7 @@ public class NumberConverter
             }
             catch
             {
-                throw new ArgumentException("Could not convert number, please enter a whole number without any letters");
+                throw new ArgumentException("Could not convert number, please enter a whole number without any letters.");
             }
         }
 
@@ -40,7 +40,7 @@ public class NumberConverter
         }
         catch
         {
-            throw new ArgumentException("Please enter a valid hexadecimal number");
+            throw new ArgumentException("Please enter a valid hexadecimal number.");
         }
     }
     public static string BinaryConverter(string input, string startUnit, string conversionUnit)
@@ -64,7 +64,7 @@ public class NumberConverter
             }
             catch
             {
-                throw new ArgumentException("Please enter a valid binary number!");
+                throw new ArgumentException("Please enter a valid binary number.");
             }
         }
         else
@@ -86,7 +86,7 @@ public class NumberConverter
             }
             catch
             {
-                throw new ArgumentException($"Please enter a valid {startUnit.ToLower()} number");
+                throw new ArgumentException($"Please enter a valid {startUnit.ToLower()} number.");
             }
         }
     }
