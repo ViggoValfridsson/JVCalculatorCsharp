@@ -9,8 +9,8 @@ public class ObjectHelperTest
     {
         var testObject = await GetConversionRate.FetchFromApi("USD");
 
-        var result = ObjectHelpers.GetPropValue(testObject.conversion_rates, "SEK");
+        var result = ObjectHelpers.GetPropValue(testObject.conversion_rates!, "SEK");
 
-        Assert.Equal(testObject.conversion_rates.SEK, result);
+        Assert.Equal(testObject.conversion_rates!.SEK, result);
     }
 }
