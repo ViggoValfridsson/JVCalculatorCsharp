@@ -16,6 +16,7 @@ namespace JVCalculatorCsharp.Pages
             if (String.IsNullOrWhiteSpace(StartCurrency) || String.IsNullOrWhiteSpace(ExchangeCurrency))
             {
                 InvalidCurrency = true;
+                return;
             }
             else if (double.TryParse(StartAmount, out var amount))
             {
