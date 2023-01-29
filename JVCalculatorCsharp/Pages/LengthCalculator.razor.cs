@@ -13,11 +13,10 @@ namespace JVCalculatorCsharp.Pages
 
         public void HandleSubmit()
         {
-            Console.WriteLine(StartingUnit);
-            Console.WriteLine(ConversionUnit);
             if (String.IsNullOrWhiteSpace(StartingUnit) || String.IsNullOrWhiteSpace(ConversionUnit))
             {
                 InvalidUnit = true;
+                return;
             }
             else if (decimal.TryParse(StartAmount, out var amount))
             {
