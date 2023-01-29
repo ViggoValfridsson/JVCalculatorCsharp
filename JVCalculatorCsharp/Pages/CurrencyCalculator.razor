@@ -115,11 +115,11 @@
     <input type="number" id="amount" required @bind="StartAmount" />
     @if (InvalidAmount)
     {
-        <p class="text-danger">Invalid amount</p>
+        <p class="text-danger">Invalid Amount</p>
     }
     @if (InvalidCurrency)
     {
-        <p class="text-danger">Invalid currency selection</p>
+        <p class="text-danger">Invalid Currency Selection</p>
     }
     <p>@ConvertedAmount</p>
     <button type="submit">Convert</button>

@@ -31,7 +31,8 @@ namespace JVCalculatorCsharp.Pages
                 }
                 catch (OverflowException)
                 {
-                    ConvertedAmount = $"Input was either too large or too small, please enter a value between {double.MinValue} and {double.MaxValue}";
+                    InvalidAmount = true;
+                    ConvertedAmount = $"Input was either too large or too small, please enter a value between {double.MinValue} and {double.MaxValue}.";
                 }
                 catch (HttpRequestException e)
                 {
