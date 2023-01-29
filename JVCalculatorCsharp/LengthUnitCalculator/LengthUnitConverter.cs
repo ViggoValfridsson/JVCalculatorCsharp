@@ -1,6 +1,6 @@
 ﻿using JVCalculatorCsharp.Models;
-
 namespace JVCalculatorCsharp.LengthUnitCalculator;
+
 public class LengthUnitConverter
 {
     public static decimal ConvertLengthUnit(decimal startValue, string startUnit, string newUnit)
@@ -14,8 +14,8 @@ public class LengthUnitConverter
 
         LengthUnitModel units = new();
 
-        var newUnitValue = units.GetType().GetField(newUnit).GetValue(units);
-        var startUnitValue = units.GetType().GetField(startUnit).GetValue(units);
+        var newUnitValue = units.GetType().GetField(newUnit)?.GetValue(units);
+        var startUnitValue = units.GetType().GetField(startUnit)?.GetValue(units);
 
         decimal conversionRatio = Convert.ToDecimal(startUnitValue) / Convert.ToDecimal(newUnitValue);
 

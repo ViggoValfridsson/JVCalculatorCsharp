@@ -19,7 +19,7 @@ public class GetConversionRate
         }
         catch
         {
-            throw;
+            throw new HttpRequestException("Could not get the exchange data, please try again.");
         }
     }
     public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)

@@ -20,12 +20,23 @@ namespace JVCalculatorCsharp.Pages
             }
             else if (double.TryParse(StartAmount, out var amount))
             {
-                InvalidCurrency = false;
-                InvalidAmount = false;
-                ConvertedAmount = "Loading...";
-                decimal fetchedAmount = await GetConversionRate.ConvertCurrency(StartCurrency!, ExchangeCurrency!, amount);
-                ConvertedAmount = fetchedAmount.ToString();
-                StateHasChanged();
+                try
+                {
+                    InvalidCurrency = false;
+                    InvalidAmount = false;
+                    ConvertedAmount = "Loading...";
+                    decimal fetchedAmount = await GetConversionRate.ConvertCurrency(StartCurrency!, ExchangeCurrency!, amount);
+                    ConvertedAmount = fetchedAmount.ToString();
+                    StateHasChanged();
+                }
+                catch (HttpRequestException e)
+                {
+                    ConvertedAmount = e.Message;
+                }
+                catch
+                {
+                    ConvertedAmount = "Something went wrong, please try again.";
+                }
             }
             else
             {
