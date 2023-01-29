@@ -4,8 +4,8 @@ namespace JVCalculatorCsharp.Pages
 {
     public partial class CurrencyCalculator
     {
-        public string? StartCurrency { get; set; }
-        public string? ExchangeCurrency { get; set; }
+        public string? StartCurrency { get; set; } = "USD";
+        public string? ExchangeCurrency { get; set; } = "EUR";
         public string? StartAmount { get; set; }
         public bool InvalidAmount { get; set; } = false;
         public bool InvalidCurrency { get; set; } = false;
