@@ -1,4 +1,5 @@
 ﻿namespace JVCalculatorCsharp.Models;
+
 public class LengthUnitModel
 {
     public readonly decimal Millimeter = 0.001m;
