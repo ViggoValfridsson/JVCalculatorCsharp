@@ -121,6 +121,14 @@
     {
         <p class="text-danger">Invalid Currency Selection</p>
     }
-    <p>@ConvertedAmount</p>
+    @if (!Loading) 
+    {
+        <p>@ConvertedAmount</p>
+    }
+    else 
+    {
+        //Replace with spinner animation later
+        <p>Loading....</p>
+    }
     <button type="submit">Convert</button>
 </form>

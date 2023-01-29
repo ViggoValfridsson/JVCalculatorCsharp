@@ -10,12 +10,14 @@ namespace JVCalculatorCsharp.Pages
         public bool InvalidAmount { get; set; } = false;
         public bool InvalidCurrency { get; set; } = false;
         public string? ConvertedAmount { get; set; }
+        public bool Loading { get; set; } = false;
 
         public async void ConvertCurrency()
         {
             if (String.IsNullOrWhiteSpace(StartCurrency) || String.IsNullOrWhiteSpace(ExchangeCurrency))
             {
                 InvalidCurrency = true;
+                Loading= false;
                 return;
             }
             else 
@@ -25,7 +27,7 @@ namespace JVCalculatorCsharp.Pages
                     var amount = Convert.ToDouble(StartAmount);
                     InvalidCurrency = false;
                     InvalidAmount = false;
-                    ConvertedAmount = "Loading...";
+                    Loading = true;
                     decimal fetchedAmount = await GetConversionRate.ConvertCurrency(StartCurrency!, ExchangeCurrency!, amount);
                     ConvertedAmount = fetchedAmount.ToString();
                 }
@@ -43,6 +45,7 @@ namespace JVCalculatorCsharp.Pages
                     ConvertedAmount = "Something went wrong, please try again.";
                 }
             }
+            Loading = false;
             StateHasChanged();
         }
     }
