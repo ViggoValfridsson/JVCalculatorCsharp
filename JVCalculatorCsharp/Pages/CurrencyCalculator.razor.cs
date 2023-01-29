@@ -18,16 +18,20 @@ namespace JVCalculatorCsharp.Pages
                 InvalidCurrency = true;
                 return;
             }
-            else if (double.TryParse(StartAmount, out var amount))
+            else 
             {
                 try
                 {
+                    var amount = Convert.ToDouble(StartAmount);
                     InvalidCurrency = false;
                     InvalidAmount = false;
                     ConvertedAmount = "Loading...";
                     decimal fetchedAmount = await GetConversionRate.ConvertCurrency(StartCurrency!, ExchangeCurrency!, amount);
                     ConvertedAmount = fetchedAmount.ToString();
-                    StateHasChanged();
+                }
+                catch (OverflowException)
+                {
+                    ConvertedAmount = $"Input was either too large or too small, please enter a value between {double.MinValue} and {double.MaxValue}";
                 }
                 catch (HttpRequestException e)
                 {
@@ -38,10 +42,7 @@ namespace JVCalculatorCsharp.Pages
                     ConvertedAmount = "Something went wrong, please try again.";
                 }
             }
-            else
-            {
-                InvalidAmount = true;
-            }
+            StateHasChanged();
         }
     }
 }
