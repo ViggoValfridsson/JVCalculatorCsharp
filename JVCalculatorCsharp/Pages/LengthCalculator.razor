@@ -3,40 +3,38 @@
 <h1>Length Converter</h1>
 
 <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
-    <label for="start-amount">Start Amount</label>
+    <label for="starting-unit">From: </label>
+    <select id="starting-unit" @bind="StartingUnit" required>
+        <option selected value="Millimeter">Millimeter</option>
+        <option value="Centimeter">Centimeter</option>
+        <option value="Meter">Meter</option>
+        <option value="Kilometer">Kilometer</option>
+        <option value="Inch">Inch</option>
+        <option value="Foot">Foot</option>
+        <option value="Yard">Yard</option>
+        <option value="Mile">Mile</option>
+    </select>
+    <label for="conversion-unit">To: </label>
+    <select id="conversion-unit" @bind="ConversionUnit" required>
+        <option value="Millimeter">Millimeter</option>
+        <option value="Centimeter">Centimeter</option>
+        <option value="Meter">Meter</option>
+        <option value="Kilometer">Kilometer</option>
+        <option selected value="Inch">Inch</option>
+        <option value="Foot">Foot</option>
+        <option value="Yard">Yard</option>
+        <option value="Mile">Mile</option>
+    </select>
+    <label for="start-amount">Length: </label>
     <input id="start-amount" type="number" @bind="StartAmount" required />
     @if (InvalidAmount)
     {
-        <p class="text-danger">Invalid amount</p>
+        <p class="text-danger">Invalid length</p>
     }
-    <p>Output: @ConvertedAmount</p>
-    <label for="starting-unit">Starting Unit</label>
-    <select id="starting-unit" @bind="StartingUnit" required>
-        <option hidden disabled selected value>Starting Unit</option>
-        <option value="Millimeter">Millimeter</option>
-        <option value="Centimeter">Centimeter</option>
-        <option value="Meter">Meter</option>
-        <option value="Kilometer">Kilometer</option>
-        <option value="Inch">Inch</option>
-        <option value="Foot">Foot</option>
-        <option value="Yard">Yard</option>
-        <option value="Mile">Mile</option>
-    </select>
-    <label for="conversion-unit">Conversion Unit</label>
-    <select id="conversion-unit" @bind="ConversionUnit" required>
-        <option hidden disabled selected value>Conversion Unit</option>
-        <option value="Millimeter">Millimeter</option>
-        <option value="Centimeter">Centimeter</option>
-        <option value="Meter">Meter</option>
-        <option value="Kilometer">Kilometer</option>
-        <option value="Inch">Inch</option>
-        <option value="Foot">Foot</option>
-        <option value="Yard">Yard</option>
-        <option value="Mile">Mile</option>
-    </select>
     @if (InvalidUnit)
     {
         <p class="text-danger">Please choose two units</p>
     }
     <button type="submit">Convert</button>
+    <p>Output: @ConvertedAmount</p>
 </form>
