@@ -1,18 +1,16 @@
 ﻿using JVCalculatorCsharp.ConvertCurrency;
 using JVCalculatorCsharp.Utils;
+namespace JVCalculatorCsharpTest;
 
-namespace JVCalculatorCsharpTest
+public class ObjectHelperTest
 {
-    public class ObjectHelperTest
+    [Fact]
+    public async void GetPropValueTest()
     {
-        [Fact]
-        public async void GetPropValueTest()
-        {
-            var testObject = await GetConversionRate.FetchFromApi("USD");
+        var testObject = await GetConversionRate.FetchFromApi("USD");
 
-            var result = ObjectHelpers.GetPropValue(testObject.conversion_rates, "SEK");
+        var result = ObjectHelpers.GetPropValue(testObject.conversion_rates!, "SEK");
 
-            Assert.Equal(testObject.conversion_rates.SEK, result);
-        }
+        Assert.Equal(testObject.conversion_rates!.SEK, result);
     }
 }

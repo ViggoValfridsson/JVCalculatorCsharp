@@ -19,7 +19,7 @@ public class GetConversionRate
         }
         catch
         {
-            throw;
+            throw new HttpRequestException("Could not get the exchange data, please try again.");
         }
     }
     public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)
@@ -29,7 +29,7 @@ public class GetConversionRate
     public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
     {
         ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);
-        var conversionRate = ObjectHelpers.GetPropValue(responseObject.conversion_rates, exchangeCurrency);
+        var conversionRate = ObjectHelpers.GetPropValue(responseObject.conversion_rates!, exchangeCurrency);
 
         return CalculateConvertedValue(Convert.ToDecimal(conversionRate), Convert.ToDecimal(startValue));
     }
