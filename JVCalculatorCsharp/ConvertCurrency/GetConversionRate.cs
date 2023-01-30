@@ -1,7 +1,6 @@
 ﻿using JVCalculatorCsharp.Models;
 using JVCalculatorCsharp.Utils;
 using Newtonsoft.Json;
-
 namespace JVCalculatorCsharp.ConvertCurrency;
 public class GetConversionRate
 {

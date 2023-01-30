@@ -1,7 +1,5 @@
 ﻿namespace JVCalculatorCsharp.ISKTaxCalculator;
 
-
-
 public class ISKTaxCalculate
 {
     public static decimal ISKTaxCalc(decimal Q1, decimal Q2, decimal Q3, decimal Q4, decimal deposits)

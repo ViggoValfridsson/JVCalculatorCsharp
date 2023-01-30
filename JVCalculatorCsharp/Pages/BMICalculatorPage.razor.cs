@@ -18,7 +18,7 @@ public partial class BMICalculatorPage
         try
         {
             decimal result;
-            if(UsingMetricUnits)
+            if (UsingMetricUnits)
             {
                 double heightInCm = Double.Parse(HeightInCm!);
                 decimal weightInKg = Decimal.Parse(WeightInKg!);
