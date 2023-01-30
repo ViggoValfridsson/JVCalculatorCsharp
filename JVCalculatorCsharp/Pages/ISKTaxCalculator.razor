@@ -12,9 +12,9 @@
     <label for="AccValueQ3">Account Value Q3</label>
     <input type="number" id="AccValueQ3" @bind="Q3" required />
 
-     <label for="AccValueQ4">Account Value Q4</label>
+    <label for="AccValueQ4">Account Value Q4</label>
     <input type="number" id="AccValueQ4" @bind="Q4" required />
-     <label for="depositsMade">Deposits</label>
+    <label for="depositsMade">Deposits</label>
     <input type="number" id="depositsMade" @bind="deposits" required />
 
 
@@ -27,9 +27,6 @@
 
 <p>@TaxToPay </p>
 
-
-
-
 @code {
     public string? Q1 { get; set; }
     public string? Q2 { get; set; }
@@ -38,8 +35,6 @@
     public string? deposits { get; set; }
     public string? TaxToPay { get; set; }
     public bool Error { get; set; } = false;
-
-   
 
     public void handleSubmit()
     {
@@ -58,7 +53,5 @@
         {
             Error = true;
         }
-       
     }
-
 }
