@@ -53,12 +53,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      
+    - name: Navigate to my TestProject
+      run: cd minSolutionMedTesterna
     - name: Download a Build Artifact
       uses: actions/download-artifact@v3.0.2
       with:
         name: mitt-test-resultat
-        
+      
     - name: Check Test Results
       run : |
         if grep -q "Failed=0" testresults.trx; then
