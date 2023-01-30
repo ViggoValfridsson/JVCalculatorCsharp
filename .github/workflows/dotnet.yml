@@ -13,13 +13,59 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v3.0.3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
+        
     - name: Restore dependencies
       run: dotnet restore
+      
     - name: Build
       run: dotnet build --no-restore
+      
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=testresults.trx"
+      
+    - name: logging show
+      run: ls -la
+        
+    - name: Store test results
+      uses: actions/upload-artifact@v3.1.2
+      with: 
+        name: mitt-test-resultat
+        path: TestResults
+        
+    - name: Check Test Results
+      run : |
+        if grep -q "Failed=0" testresults.trx; then
+          echo "All looks well"
+          exit 0
+        else
+          echo "Some tests did not pass"
+          exit 1
+        fi
+        
+  approve: 
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.2
+      with:
+        name: mitt-test-resultat
+        
+    - name: Check Test Results
+      run : |
+        if grep -q "Failed=0" testresults.trx; then
+          echo "All looks well"
+          exit 0
+        else
+          echo "Some tests did not pass"
+          exit 1
+        fi
+
