@@ -43,7 +43,7 @@ public partial class BMICalculatorPage
             NegativeInput = false;
             InvalidInput = false;
 
-            BMI = $"BMI = {result}";
+            BMI = $"BMI = {result.ToString("G29")}";
         }
         catch (ArgumentOutOfRangeException)
         {
