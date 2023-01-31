@@ -43,11 +43,12 @@ nav {
 
 ::deep .nav-link {
     font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--color-white);
+    font-weight: 400;
+    color: #c0c0c0;
 }
 
 ::deep .active {
+    color: var(--color-white);
     font-weight: 900;
 }
 
