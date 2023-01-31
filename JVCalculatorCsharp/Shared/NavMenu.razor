@@ -1,47 +1,59 @@
 ﻿<header>
-    <div>
-        <h1>JVCalculator</h1>
+    <div class="container">
+        <div class="logo">
+            <h1>JVCalculator</h1>
+            <button @onclick="OpenMenu" class="show-menu">
+                @if (isHidden)
+                {
+                    <i class="bi bi-list"></i>
+                }
+                else
+                {
+                    <i class="bi bi-x"></i>
+                }
+            </button>
+        </div>
+        <nav class="@(isHidden ? "hidden" : "")">
+            <div class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    Home Page
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="currencyexchange">
+                    Currency Converter
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="compound">
+                    Compound Interest
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="lengthconverter">
+                    Length Converter
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="bmi">
+                    BMI Calculator
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="ISKTax">
+                    ISK Tax Calculator
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="numberconverter">
+                    Number Converter
+                </NavLink>
+            </div>
+            <div class="nav-item">
+                <NavLink class="nav-link" href="Temperature">
+                    Temperature Converter
+                </NavLink>
+            </div>
+        </nav>
     </div>
-    <nav>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="currencyexchange">
-                Currency Converter
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="compound">
-                Compound Interest
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="lengthconverter">
-                Length Converter
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="bmi">
-                BMI calculator
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="ISKTax">
-                ISK
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="numberconverter">
-                Number Converter
-            </NavLink>
-        </div>
-        <div class="nav-item">
-            <NavLink class="nav-link" href="Temperature">
-                Temperature Converter
-            </NavLink>
-        </div>
-    </nav>
 </header>

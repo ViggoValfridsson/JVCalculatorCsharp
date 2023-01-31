@@ -1,29 +1,115 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
-h1:focus {
-    outline: none;
+:root {
+    --color-bg: #f5f5f5;
+    --color-bg-variant: #1e1e21;
+    --color-primary: #34568B;
+    --color-primary-variant: #DD4124;
+    --color-white: #f5f5f5;
+    --color-text: #1e1e21;
+    --transition: all 400ms ease;
+    --container-width-lg: 75%;
+    --container-width-md: 86%;
+    --container-width-sm: 90%;
 }
 
-a, .btn-link {
-    color: #0071c1;
+html {
+    scroll-behavior: smooth;
 }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+main {
+    min-height: 73vh;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    width: var(--container-width-sm);
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 2.8rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-top: 2rem;
+}
+
+    section > h2,
+    section > h5 {
+        text-align: center;
+        color: var(--color-text);
+    }
+
+    section > h2 {
+        color: var(--color-primary);
+        margin-bottom: 2rem;
+    }
+
+.btn {
+    width: max-content;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    transition: var(--transition);
+}
+
+    .btn:hover,
+    .btn:focus {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+        border-color: transparent;
+    }
 
 .btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+    background-color: var(--color-primary);
+    color: var(--color-bg);
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-.content {
-    padding-top: 1.1rem;
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -99,3 +185,91 @@ a, .btn-link {
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
     }
+
+.calculator {
+    background-color: transparent;
+    border: 2px solid var(--color-bg-variant);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 2px 4px 15px rgba(0,0,0, 0.4);
+    padding: 1.5rem;
+}
+
+    .calculator label {
+        font-size: 1.3rem;
+        width: 100%;
+    }
+
+    .calculator input {
+        width: 100%;
+        border: 2px solid var(--color-bg-variant);
+        border-radius: 4px;
+        font-size: 1.4rem;
+        padding: 0.4rem 0.2rem;
+    }
+
+    .calculator form {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .calculator .btn {
+        border-width: 2px;
+        font-size: 1.2rem;
+        margin: 0 auto;
+    }
+
+    .calculator input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .calculator input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .calculator .output {
+        font-size: 1.6rem;
+    }
+
+    .calculator select {
+        width: 75%;
+        border: 2px solid var(--color-bg-variant);
+        border-radius: 4px;
+        font-size: 1.2rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    .calculator .select-label {
+        width:auto;
+    }
+
+    .select-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+.error {
+    color: darkred;
+    font-size: 1.3rem;
+}
+
+@media (min-width: 600px) {
+    .container {
+        width: var(--container-width-md);
+    }
+
+    section > h2 {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: var(--container-width-lg);
+        max-width: 1450px;
+    }
+}
