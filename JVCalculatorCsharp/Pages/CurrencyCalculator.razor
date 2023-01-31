@@ -116,24 +116,25 @@
                 <option value="ZAR">ZAR</option>
             </select>
         </div>
-        <label for="amount">Amount: </label>
-        <input type="number" id="amount" required @bind="StartAmount" />
+        <div class="input">
+            <label for="amount">Amount: </label>
+            <input type="number" id="amount" required @bind="StartAmount" />
+        </div>
         @if (InvalidAmount)
         {
             <p class="error">Invalid Amount</p>
         }
-        @if (InvalidCurrency)
+        else if (InvalidCurrency)
         {
             <p class="error">Invalid Currency Selection</p>
         }
-        @if (!Loading)
+        else if (!Loading)
         {
-            <p class="output">@ConvertedAmount</p>
+            <p class="output">Result: @ConvertedAmount</p>
         }
         else
         {
-            //Replace with spinner animation later
-            <p>Loading....</p>
+            <p class="output">Loading....</p>
         }
         <button class="btn" type="submit">Convert</button>
     </form>

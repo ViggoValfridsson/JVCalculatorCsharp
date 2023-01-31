@@ -1,0 +1,81 @@
+﻿.select-container {
+    gap: 0.5rem;
+}
+
+    .select-container select {
+        width: 75%;
+    }
+
+    .select-container label {
+        width: auto;
+    }
+
+
+@media (min-width: 600px) {
+    .calculator form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between
+    }
+
+    .select-container {
+        height: 50%;
+        width: 30%;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    .input {
+        width: 30%;
+        height: 50%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+        .input input {
+            width: 50%;
+        }
+
+        .input label {
+            width: auto;
+        }
+
+    .calculator .output {
+        width: 100%;
+    }
+
+    .calculator .error {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .input input {
+        width: 60%;
+    }
+
+    .calculator select {
+        width: 75%;
+    }
+}
+
+@media (min-width: 1324px) {
+    .input input {
+        width: 70%;
+    }
+
+    .calculator select {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1524px) {
+    .input input {
+        width: 80%;
+    }
+
+    .calculator select {
+        width: 90%;
+    }
+}
