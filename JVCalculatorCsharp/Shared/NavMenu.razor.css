@@ -35,7 +35,6 @@ header {
 
 nav {
     padding-top: 1rem;
-    transition: var(--transition);
 }
 
 .nav-item {
@@ -50,4 +49,35 @@ nav {
 
 ::deep .active {
     font-weight: 900;
+}
+
+@media (min-width: 1024px) {
+    header {
+        padding: 1rem 1rem 0 1rem;
+    }
+    .hidden {
+        display: flex;
+    }
+    .show-menu {
+        display: none;
+    }
+    nav {
+        padding-top: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-item {
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ::deep .nav-link {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+        text-align: center;
+    }
+    ::deep .nav-link:hover {
+        background-color: #000;
+    }
 }

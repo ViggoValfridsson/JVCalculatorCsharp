@@ -1,0 +1,35 @@
+﻿footer {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg-variant);
+    color: var(--color-white);
+}
+
+h4 {
+    width: 100%;
+    text-align: center;
+}
+
+h4 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+@media (min-width: 600px) {
+    footer {
+        height: 15vh;
+    }
+    h4 {
+        font-size: 1.4rem;
+        font-weight: 300;
+    }
+}
+
+@media (min-width: 1024px) {
+    h4 {
+        font-size: 1.6rem;
+    }
+}
