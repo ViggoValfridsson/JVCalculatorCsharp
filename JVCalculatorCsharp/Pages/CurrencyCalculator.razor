@@ -2,133 +2,139 @@
 
 <h2>Currency Conversion</h2>
 
-<form @onsubmit="ConvertCurrency" @onsubmit:preventDefault="true">
-    <label for="start-currency">From: </label>
-    <select id="start-currency" @bind="StartCurrency" required>
-        <option value="AED">AED</option>
-        <option value="ARS">ARS</option>
-        <option value="AUD">AUD</option>
-        <option value="BGN">BGN</option>
-        <option value="BRL">BRL</option>
-        <option value="BSD">BSD</option>
-        <option value="CAD">CAD</option>
-        <option value="CHF">CHF</option>
-        <option value="CLP">CLP</option>
-        <option value="CNY">CNY</option>
-        <option value="COP">COP</option>
-        <option value="CZK">CZK</option>
-        <option value="DKK">DKK</option>
-        <option value="DOP">DOP</option>
-        <option value="EGP">EGP</option>
-        <option value="EUR">EUR</option>
-        <option value="FJD">FJD</option>
-        <option value="GDP">GDP</option>
-        <option value="GTQ">GTQ</option>
-        <option value="HKD">HKD</option>
-        <option value="HRK">HRK</option>
-        <option value="HUF">HUF</option>
-        <option value="IDR">IDR</option>
-        <option value="ILS">ILS</option>
-        <option value="INR">INR</option>
-        <option value="ISK">ISK</option>
-        <option value="JPY">JPY</option>
-        <option value="KRW">KRW</option>
-        <option value="KZT">KZT</option>
-        <option value="MXN">MXN</option>
-        <option value="MYR">MYR</option>
-        <option value="NOK">NOK</option>
-        <option value="NZD">NZD</option>
-        <option value="PAB">PAB</option>
-        <option value="PEN">PEN</option>
-        <option value="PHP">PHP</option>
-        <option value="PKR">PKR</option>
-        <option value="PLN">PLN</option>
-        <option value="PYG">PYG</option>
-        <option value="RON">RON</option>
-        <option value="RUB">RUB</option>
-        <option value="SAR">SAR</option>
-        <option value="SEK">SEK</option>
-        <option value="SGB">SGB</option>
-        <option value="THB">THB</option>
-        <option value="TRY">TRY</option>
-        <option value="TWD">TWD</option>
-        <option value="UAH">UAH</option>
-        <option selected value="USD">USD</option>
-        <option value="UYU">UYU</option>
-        <option value="ZAR">ZAR</option>
-    </select>
-    <label for="exchange-currency">To: </label>
-    <select id="exchange-currency" required @bind="ExchangeCurrency">
-        <option value="AED">AED</option>
-        <option value="ARS">ARS</option>
-        <option value="AUD">AUD</option>
-        <option value="BGN">BGN</option>
-        <option value="BRL">BRL</option>
-        <option value="BSD">BSD</option>
-        <option value="CAD">CAD</option>
-        <option value="CHF">CHF</option>
-        <option value="CLP">CLP</option>
-        <option value="CNY">CNY</option>
-        <option value="COP">COP</option>
-        <option value="CZK">CZK</option>
-        <option value="DKK">DKK</option>
-        <option value="DOP">DOP</option>
-        <option value="EGP">EGP</option>
-        <option selected value="EUR">EUR</option>
-        <option value="FJD">FJD</option>
-        <option value="GDP">GDP</option>
-        <option value="GTQ">GTQ</option>
-        <option value="HKD">HKD</option>
-        <option value="HRK">HRK</option>
-        <option value="HUF">HUF</option>
-        <option value="IDR">IDR</option>
-        <option value="ILS">ILS</option>
-        <option value="INR">INR</option>
-        <option value="ISK">ISK</option>
-        <option value="JPY">JPY</option>
-        <option value="KRW">KRW</option>
-        <option value="KZT">KZT</option>
-        <option value="MXN">MXN</option>
-        <option value="MYR">MYR</option>
-        <option value="NOK">NOK</option>
-        <option value="NZD">NZD</option>
-        <option value="PAB">PAB</option>
-        <option value="PEN">PEN</option>
-        <option value="PHP">PHP</option>
-        <option value="PKR">PKR</option>
-        <option value="PLN">PLN</option>
-        <option value="PYG">PYG</option>
-        <option value="RON">RON</option>
-        <option value="RUB">RUB</option>
-        <option value="SAR">SAR</option>
-        <option value="SEK">SEK</option>
-        <option value="SGB">SGB</option>
-        <option value="THB">THB</option>
-        <option value="TRY">TRY</option>
-        <option value="TWD">TWD</option>
-        <option value="UAH">UAH</option>
-        <option value="USD">USD</option>
-        <option value="UYU">UYU</option>
-        <option value="ZAR">ZAR</option>
-    </select>
-    <label for="amount">Amount: </label>
-    <input type="number" id="amount" required @bind="StartAmount" />
-    @if (InvalidAmount)
-    {
-        <p class="text-danger">Invalid Amount</p>
-    }
-    @if (InvalidCurrency)
-    {
-        <p class="text-danger">Invalid Currency Selection</p>
-    }
-    @if (!Loading)
-    {
-        <p>@ConvertedAmount</p>
-    }
-    else
-    {
-        //Replace with spinner animation later
-        <p>Loading....</p>
-    }
-    <button type="submit">Convert</button>
-</form>
+<div class="calculator">
+    <form @onsubmit="ConvertCurrency" @onsubmit:preventDefault="true">
+        <div class="select-container">
+            <label class="select-label" for="start-currency">From: </label>
+            <select id="start-currency" @bind="StartCurrency" required>
+                <option value="AED">AED</option>
+                <option value="ARS">ARS</option>
+                <option value="AUD">AUD</option>
+                <option value="BGN">BGN</option>
+                <option value="BRL">BRL</option>
+                <option value="BSD">BSD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CLP">CLP</option>
+                <option value="CNY">CNY</option>
+                <option value="COP">COP</option>
+                <option value="CZK">CZK</option>
+                <option value="DKK">DKK</option>
+                <option value="DOP">DOP</option>
+                <option value="EGP">EGP</option>
+                <option value="EUR">EUR</option>
+                <option value="FJD">FJD</option>
+                <option value="GDP">GDP</option>
+                <option value="GTQ">GTQ</option>
+                <option value="HKD">HKD</option>
+                <option value="HRK">HRK</option>
+                <option value="HUF">HUF</option>
+                <option value="IDR">IDR</option>
+                <option value="ILS">ILS</option>
+                <option value="INR">INR</option>
+                <option value="ISK">ISK</option>
+                <option value="JPY">JPY</option>
+                <option value="KRW">KRW</option>
+                <option value="KZT">KZT</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="NOK">NOK</option>
+                <option value="NZD">NZD</option>
+                <option value="PAB">PAB</option>
+                <option value="PEN">PEN</option>
+                <option value="PHP">PHP</option>
+                <option value="PKR">PKR</option>
+                <option value="PLN">PLN</option>
+                <option value="PYG">PYG</option>
+                <option value="RON">RON</option>
+                <option value="RUB">RUB</option>
+                <option value="SAR">SAR</option>
+                <option value="SEK">SEK</option>
+                <option value="SGB">SGB</option>
+                <option value="THB">THB</option>
+                <option value="TRY">TRY</option>
+                <option value="TWD">TWD</option>
+                <option value="UAH">UAH</option>
+                <option selected value="USD">USD</option>
+                <option value="UYU">UYU</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <label class="select-label" for="exchange-currency">To: </label>
+            <select id="exchange-currency" required @bind="ExchangeCurrency">
+                <option value="AED">AED</option>
+                <option value="ARS">ARS</option>
+                <option value="AUD">AUD</option>
+                <option value="BGN">BGN</option>
+                <option value="BRL">BRL</option>
+                <option value="BSD">BSD</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CLP">CLP</option>
+                <option value="CNY">CNY</option>
+                <option value="COP">COP</option>
+                <option value="CZK">CZK</option>
+                <option value="DKK">DKK</option>
+                <option value="DOP">DOP</option>
+                <option value="EGP">EGP</option>
+                <option selected value="EUR">EUR</option>
+                <option value="FJD">FJD</option>
+                <option value="GDP">GDP</option>
+                <option value="GTQ">GTQ</option>
+                <option value="HKD">HKD</option>
+                <option value="HRK">HRK</option>
+                <option value="HUF">HUF</option>
+                <option value="IDR">IDR</option>
+                <option value="ILS">ILS</option>
+                <option value="INR">INR</option>
+                <option value="ISK">ISK</option>
+                <option value="JPY">JPY</option>
+                <option value="KRW">KRW</option>
+                <option value="KZT">KZT</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="NOK">NOK</option>
+                <option value="NZD">NZD</option>
+                <option value="PAB">PAB</option>
+                <option value="PEN">PEN</option>
+                <option value="PHP">PHP</option>
+                <option value="PKR">PKR</option>
+                <option value="PLN">PLN</option>
+                <option value="PYG">PYG</option>
+                <option value="RON">RON</option>
+                <option value="RUB">RUB</option>
+                <option value="SAR">SAR</option>
+                <option value="SEK">SEK</option>
+                <option value="SGB">SGB</option>
+                <option value="THB">THB</option>
+                <option value="TRY">TRY</option>
+                <option value="TWD">TWD</option>
+                <option value="UAH">UAH</option>
+                <option value="USD">USD</option>
+                <option value="UYU">UYU</option>
+                <option value="ZAR">ZAR</option>
+            </select>
+        </div>
+        <label for="amount">Amount: </label>
+        <input type="number" id="amount" required @bind="StartAmount" />
+        @if (InvalidAmount)
+        {
+            <p class="error">Invalid Amount</p>
+        }
+        @if (InvalidCurrency)
+        {
+            <p class="error">Invalid Currency Selection</p>
+        }
+        @if (!Loading)
+        {
+            <p class="output">@ConvertedAmount</p>
+        }
+        else
+        {
+            //Replace with spinner animation later
+            <p>Loading....</p>
+        }
+        <button class="btn" type="submit">Convert</button>
+    </form>
+</div>

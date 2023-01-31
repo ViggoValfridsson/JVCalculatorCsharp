@@ -3,22 +3,28 @@
 
 <h2>Compound Calculator</h2>
 
-<form @onsubmit="handleSubmit" @onsubmit:preventDefault="true">
-    <label for="startAmount">Starting capital</label>
-    <input type="number" id="startAmount" placeholder="Example: 1000" @bind="StartingCapital" required />
-    <label for="rateOfReturn">Annual return in %</label>
-    <input type="number" id="rateOfReturn" placeholder="Example: 8" @bind="RateOfReturn" required />
-    <label for="investmentPeriod">Investment period in years</label>
-    <input type="number" id="investmentPeriod" placeholder="Example: 10" @bind="InvestmentPeriod" required />
-    @if (Error)
-    {
-        <p>Invalid input, please try again.</p>
-    }
-    <button type="submit">Compound</button>
-</form>
-
-<p>@CompoundedValue</p>
-
+<div class="calculator">
+    <form @onsubmit="handleSubmit" @onsubmit:preventDefault="true">
+        <div>
+            <label for="startAmount">Starting capital:</label>
+            <input type="number" id="startAmount" placeholder="Example: 1000" @bind="StartingCapital" required />
+        </div>
+        <div>
+            <label for="rateOfReturn">Annual return in %:</label>
+            <input type="number" id="rateOfReturn" placeholder="Example: 8" @bind="RateOfReturn" required />
+        </div>
+        <div>
+            <label for="investmentPeriod">Investment period in years:</label>
+            <input type="number" id="investmentPeriod" placeholder="Example: 10" @bind="InvestmentPeriod" required />
+        </div>
+        @if (Error)
+        {
+            <p class="error">Invalid input, please try again.</p>
+        }
+        <p class="output">@CompoundedValue</p>
+        <button class="btn" type="submit">Compound</button>
+    </form>
+</div>
 
 @code {
     public string? StartingCapital { get; set; }

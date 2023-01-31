@@ -2,22 +2,26 @@
 
 <h2>Number Converter</h2>
 
-<form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
-    <label for="from-base">From: </label>
-    <select id="from-base" @bind="StartUnit" required>
-        <option value="Decimal" selected>Decimal</option>
-        <option value="Binary">Binary</option>
-        <option value="Hexadecimal">Hexadecimal</option>
-    </select>
-    <label for="to-base">To: </label>
-    <select id="to-base" @bind="ConversionUnit" required>
-        <option value="Decimal">Decimal</option>
-        <option value="Binary" selected>Binary</option>
-        <option value="Hexadecimal">Hexadecimal</option>
-    </select>
-    <input type="text" @bind="Input" />
-    <button type="submit">Submit</button>
-
-    <!--Error klassen ge röd text-->
-    <p class="@(Error ? "Error" : "")">Result: @Result</p>
-</form>
+<div class="calculator">
+    <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+        <div class="select-container">
+            <label for="from-base">From: </label>
+            <select id="from-base" @bind="StartUnit" required>
+                <option value="Decimal" selected>Decimal</option>
+                <option value="Binary">Binary</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <label for="to-base">To: </label>
+            <select id="to-base" @bind="ConversionUnit" required>
+                <option value="Decimal">Decimal</option>
+                <option value="Binary" selected>Binary</option>
+                <option value="Hexadecimal">Hexadecimal</option>
+            </select>
+        </div>
+        <input type="text" @bind="Input" />
+        <p class="@(Error ? "error" : "output")">@Result</p>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
