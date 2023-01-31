@@ -244,13 +244,13 @@ img {
     }
 
     .calculator .select-label {
-        width:auto;
+        width: auto;
     }
 
-    .select-container {
-        display: flex;
-        justify-content: space-between;
-    }
+.select-container {
+    display: flex;
+    justify-content: space-between;
+}
 
 .error {
     color: darkred;

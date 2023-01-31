@@ -20,7 +20,10 @@
                 <option value="Hexadecimal">Hexadecimal</option>
             </select>
         </div>
-        <input type="text" @bind="Input" />
+        <div class="input">
+            <label for="number-input">Number: </label>
+            <input id="nubmer-input" type="text" @bind="Input" />
+        </div>
         <p class="@(Error ? "error" : "output")">@Result</p>
         <button class="btn" type="submit">Submit</button>
     </form>
