@@ -2,7 +2,7 @@
 @page "/ISKTax";
 
 <h2>ISK Tax Calculator</h2>
-<p> Calculates your ISK tax to be paid for the recent year. Adding your account-balances for every quarter together and then adding the deposits made during the year. This sum will be divided with 4 in order to get the average acccount value. The average account value is multiplied with the government-loan-interest-rate for the year, + 1. Which is, 1.94 (+1) = 2.94 (2023). This number will then be taxed with 30% which is the common tax for capital gains.</p>
+<p class="intro"> Calculates your ISK tax to be paid for the recent year. Adding your account-balances for every quarter together and then adding the deposits made during the year. This sum will be divided with 4 in order to get the average acccount value. The average account value is multiplied with the government-loan-interest-rate for the year, + 1. Which is, 1.94 (+1) = 2.94 (2023). This number will then be taxed with 30% which is the common tax for capital gains.</p>
 
 <div class="calculator">
     <form @onsubmit="handleSubmit" @onsubmit:preventDefault="true">
