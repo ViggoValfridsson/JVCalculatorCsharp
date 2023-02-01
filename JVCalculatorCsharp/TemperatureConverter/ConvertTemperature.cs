@@ -2,6 +2,9 @@
 
 public class ConvertTemperature
 {
+    /*Tar in startvalue, startUnit och convertToUnit (användaren ger input) och konverterar startvalue till motsvarande värde för enheten convertToUnit. 
+      Detta värde, dvs returnValue returneras med två decimaler.
+     */
     public static decimal CelsiusFahrenheitConversion(decimal startValue, string startUnit, string convertToUnit)
     {
         decimal returnValue;
@@ -20,6 +23,7 @@ public class ConvertTemperature
         return Math.Round(returnValue, 2);
     }
 
+    //Tar in startvalue, startUnit och convertToUnit (användaren ger input) och konverterar startvalue till motsvarande värde för enheten convertToUnit, detta värde (returValue) returneras. 
     public static decimal KelvinConversion(decimal startValue, string startUnit, string convertToUnit)
     {
         if(startUnit == "Kelvin" && convertToUnit == "Celsius")
