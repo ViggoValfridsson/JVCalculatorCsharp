@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 namespace JVCalculatorCsharp.ConvertCurrency;
 public class GetConversionRate
 {
+    //Fetches exchange rate data from an api and returns it as ExchangeDataObject
     public static async Task<ExchangeDataObject> FetchFromApi(string currency)
     {
         HttpClient client = new();
@@ -21,10 +22,12 @@ public class GetConversionRate
             throw new HttpRequestException("Could not get the exchange data, please try again.");
         }
     }
+    //Calculates converted value based on start amount and conversion rate
     public static decimal CalculateConvertedValue(decimal startValue, decimal conversionRate)
     {
         return startValue * conversionRate;
     }
+    //Takes in a start value and two string representing two currencies and makes a conversion between them
     public static async Task<decimal> ConvertCurrency(string baseCurrency, string exchangeCurrency, double startValue)
     {
         ExchangeDataObject responseObject = await FetchFromApi(baseCurrency);

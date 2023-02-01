@@ -36,11 +36,10 @@
         {
             <p class="error">Please enter your height and weight with numbers</p>
         }
-        @if (NegativeInput)
+        else
         {
-            <p class="error">Please enter your height and weight using positive numbers</p>
+            <p class="output">@BMI</p>
         }
-        <p class="output">@BMI</p>
         <button class="btn" type="submit">Calculate</button>
     </form>
 </div>

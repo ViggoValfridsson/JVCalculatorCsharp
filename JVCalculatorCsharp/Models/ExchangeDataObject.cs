@@ -1,5 +1,6 @@
 ﻿namespace JVCalculatorCsharp.Models;
 
+//Model to store data from exchange-rate API
 public class ExchangeDataObject
 {
     public string? result { get; set; }
