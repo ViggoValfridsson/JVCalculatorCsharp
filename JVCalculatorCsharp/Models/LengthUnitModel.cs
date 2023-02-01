@@ -1,5 +1,6 @@
 ﻿namespace JVCalculatorCsharp.Models;
 
+//Model that stores the ratio between every unit and one meter.
 public class LengthUnitModel
 {
     public readonly decimal Millimeter = 0.001m;

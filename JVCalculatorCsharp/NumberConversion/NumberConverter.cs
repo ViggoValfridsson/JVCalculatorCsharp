@@ -2,6 +2,7 @@
 
 public class NumberConverter
 {
+    //Converts strings between decimal and hexadecimal values
     public static string DecimalHexConverter(string input, string startUnit, string conversionUnit)
     {
         if (startUnit == "Decimal")
@@ -43,6 +44,7 @@ public class NumberConverter
             throw new ArgumentException("Please enter a valid hexadecimal number.");
         }
     }
+    //Converts between binary, decimal and hexadecimal numbers
     public static string BinaryConverter(string input, string startUnit, string conversionUnit)
     {
         if (startUnit == "Binary")
