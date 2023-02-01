@@ -2,6 +2,7 @@
 using JVCalculatorCsharp.Utils;
 using Newtonsoft.Json;
 namespace JVCalculatorCsharp.ConvertCurrency;
+
 public class GetConversionRate
 {
     //Fetches exchange rate data from an api and returns it as ExchangeDataObject
