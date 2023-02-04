@@ -3,9 +3,9 @@
 # JVCalculatorCsharp
 
 ## How to use:
-- Use "dotnet watch" to preview the site
-- Use "dotnet publish -c Release" to build for deployment
-- Use "dotnet test" to run tests
+- Use ```dotnet watch``` to preview the site
+- Use ```dotnet publish -c Release``` to build for deployment
+- Use ```dotnet test``` to run tests
 
 ## Content:
 - Home page which contains cards that link to all calculators and converters
@@ -17,6 +17,4 @@
 - Number Converter to convert between decimal, hexadecimal and binary numbers
 - Temperature converter to convert between Celsiuis, Fahrenheit and Kelvin
 
-## Created by:
-- Jacob Erlandsson
-- Viggo Valfridsson
+### Created by Jacob Erlandsson and Viggo Valfridsson
