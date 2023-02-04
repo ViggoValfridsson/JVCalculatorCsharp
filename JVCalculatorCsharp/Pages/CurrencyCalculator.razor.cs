@@ -37,7 +37,7 @@ public partial class CurrencyCalculator
             catch (OverflowException)
             {
                 InvalidAmount = true;
-                ConvertedAmount = $"Input was either too large or too small, please enter a value between {double.MinValue} and {double.MaxValue}.";
+                ConvertedAmount = $"Input was either too large or too small, please enter another number.";
             }
             //Displays an error message if something went wrong with the HttpRequest
             catch (HttpRequestException e)
