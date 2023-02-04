@@ -12,7 +12,7 @@ public partial class BMICalculatorPage
     public string? WeightInLbs { get; set; }
     public bool InvalidInput { get; set; } = false;
 
-    //Validates inputs and sends then uses the BMICalculator class to calculate BMI
+    //Validates inputs and then uses the BMICalculator class to calculate BMI
     public void HandleSubmit()
     {
         try
@@ -21,6 +21,7 @@ public partial class BMICalculatorPage
 
             if (UsingMetricUnits)
             {
+                //Converts input to correct datatype
                 double heightInCm = Double.Parse(HeightInCm!);
                 decimal weightInKg = Decimal.Parse(WeightInKg!);
 
@@ -33,6 +34,7 @@ public partial class BMICalculatorPage
             }
             else
             {
+                //Converts input to correct datatype
                 decimal heightInFeet = decimal.Parse(HeightFeet!);
                 decimal heightInInches = decimal.Parse(HeightInches!);
                 decimal weightInLbs = decimal.Parse(WeightInLbs!);

@@ -7,7 +7,6 @@
 <div class="calculator">
     <button @onclick="() => UsingMetricUnits = true" type="button" class="btn unit-selection @(UsingMetricUnits ? "selected" : "")">Metric Units </button>
     <button @onclick="() => UsingMetricUnits = false" type="button" class="btn unit-selection @(UsingMetricUnits ? "" : "selected")">Imperial Units</button>
-
     <form @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
         @if (UsingMetricUnits)
         {
